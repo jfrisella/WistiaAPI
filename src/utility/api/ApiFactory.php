@@ -1,16 +1,131 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Uri.php.vb" Inherits="libs_wistia_api_src_utility_api_Uri" %>
+<?php
+/**
+*   Uri Builder
+*/
+namespace Wistia\Utility\API;
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+class ApiFactory
+{
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+    /**
+    *   Main API Uri
+    *   
+    *   @var string
+    */
+    protected $api = "https://api.wistia.com/v1/";
+
     
-    </div>
-    </form>
-</body>
-</html>
+    /**
+    *   Response Type
+    *
+    *   @var string
+    */
+    protected $extension = "json";
+    
+    
+    /**
+    *   API Resource  
+    *
+    *   @var string
+    */
+    protected $resource;
+    
+    
+    /**
+    *   Resource Action
+    *
+    *   @var string
+    */
+    protected $action;
+    
+    
+    /**
+    *   API Resource/Action List
+    *
+    *   @var array
+    */
+    protected $apiList = [
+        "Projects" => [
+            "listOf" => [
+                "method" => "GET",
+                "uri" => "projects"
+            ],
+            "show" => [
+                "method" => "GET",
+                "uri" => "projects/{{ITEM-ID}}"
+            ],
+            "create" => [
+                "method" => "POST",
+                "uri" => "projects"
+            ],
+            "update" => [
+                "method" => "PUT",
+                "uri" => "projects/{{ITEM-ID}}"
+            ],
+            "delete" => [
+                "method" => "DELETE",
+                "uri" => "projects/{{ITEM-ID}}"
+            ],
+            "copy" => [
+                "method" => "POST",
+                "uri" => "projects/{{ITEM-ID}}/copy"
+            ]
+        ]
+    ];
+
+    
+    /**
+    *   Create new ApiFactory instance
+    */
+    public function __construct(){}
+    
+    
+    /**
+    *   Get Uri
+    *
+    *   @param $item_id (optional) - wistia item id - project or media 
+    */
+    public function getUri($item_id){
+        $url = str_replace("{{ITEM-ID}}", $item_id, $this->apiList[$this->resource][$this->action]["uri"]);
+        return $this->api . $url . "." . $extension;
+    }
+    
+    
+    /**
+    *   Get Method
+    */
+    public function getMethod(){
+        return $this->apiList[$this->resource][$this->action]["method"];
+    }
+    
+    
+    /**
+    *   Set Resource
+    *
+    *   @param $resource - api resource name
+    */
+    public function setResource($resource){
+        $this->resource = $resource;
+    }
+    
+    
+    /**
+    *   Set Action
+    *
+    *   @param $action - api resource action
+    */
+    public function setAction($action){
+        $this->action = $action;
+    }
+    
+    
+    /**
+    *   Set Extension
+    *
+    *   @param $extension - json or xml response type
+    */
+    public function setExtension($extension){
+        $this->extension = $extension;
+    }
+    
+}
