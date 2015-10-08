@@ -2,17 +2,21 @@
 /**
 *   Resource - Extendable Class
 */
-namespace VJS\Resources;
+namespace Wistai\Resources;
 
 abstract class Resource
 {
 
     /**
-    *   Wistia Api Key
+    *   Create new Resource instance
     *
-    *   @var string
+    *   @param $apikey - wistia apikey
     */
-    protected $apikey;
+    public function __construct($apikey){
     
+        //Set apikey here
+        //so don't have to in every resource
+        \Wistia\Utility\Curl\Curl::$apikey = $apikey;
+    }
 
 }

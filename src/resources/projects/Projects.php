@@ -4,14 +4,8 @@
 */
 namespace Wistia\Resources\Projects;
 
-class Project extends \Wistia\Resources\Resource implements Wistia\Interfaces\Projects\iProject
+class Project extends \Wistia\Resources\Resource implements \Wistia\Interfaces\Projects\iProject
 {
-
-    /**
-    *
-    *
-    *
-    */
     
     
     /**
@@ -20,10 +14,15 @@ class Project extends \Wistia\Resources\Resource implements Wistia\Interfaces\Pr
     *   @param $apikey - wistia provided api key
     */
     public function __construct($apikey){
-        
+        parent::__construct($apikey);
     }
     
     
+    /**
+    *
+    *
+    *
+    */
     public function listOf(){}
     public function show(){}
     public function create(){}
