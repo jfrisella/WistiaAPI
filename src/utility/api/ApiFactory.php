@@ -86,7 +86,12 @@ class ApiFactory
     *   @param $item_id (optional) - wistia item id - project or media 
     */
     public function getUri($item_id){
-        $url = str_replace("{{ITEM-ID}}", $item_id, $this->apiList[$this->resource][$this->action]["uri"]);
+        if(!isset($this->resource) || !isset($this->action)){
+            throw new \Exception("ApiFactory : getUri : resource or action is not set", 400);
+        }
+        
+        $l = $this->apiList[$this->resource][$this->action]["uri"];
+        $url = str_replace("{{ITEM-ID}}", $item_id, $l);
         return $this->api . $url . "." . $extension;
     }
     
@@ -95,6 +100,9 @@ class ApiFactory
     *   Get Method
     */
     public function getMethod(){
+        if(!isset($this->resource) || !isset($this->action)){
+            throw new \Exception("ApiFactory : getMethod : resource or action is not set", 400);
+        }
         return $this->apiList[$this->resource][$this->action]["method"];
     }
     

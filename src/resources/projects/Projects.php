@@ -4,9 +4,15 @@
 */
 namespace Wistia\Resources\Projects;
 
-class Project implements Wistia\Interfaces\Projects\iProject
+class Project extends \Wistia\Resources\Resource implements Wistia\Interfaces\Projects\iProject
 {
 
+    /**
+    *
+    *
+    *
+    */
+    
     
     /**
     *   Create new Projects instance
@@ -14,7 +20,7 @@ class Project implements Wistia\Interfaces\Projects\iProject
     *   @param $apikey - wistia provided api key
     */
     public function __construct($apikey){
-    
+        
     }
     
     
