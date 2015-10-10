@@ -26,9 +26,10 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Interfaces\
     
     
     /**
+    *   Show Projects
     *
-    *
-    *
+    *   @param $project_id - id of wistia project
+    *   @return wistia output object
     */
     public function show($project_id){
         
@@ -40,7 +41,14 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Interfaces\
     }
     
     
-    public function listOf(){}
+    public function listOf(){
+        
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "listOf", $project_id);
+        
+        $curl = new \Wistia\Utility\Curl\Curl();
+        return $curl->get($uri);
+    }
+    
     public function create(){}
     public function update(){}
     public function delete(){}
