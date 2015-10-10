@@ -20,7 +20,7 @@
 			"src/Resources/Projects",
 			"src/Utility/Curl",
 			"src/Utility/Output",
-			"src/Uri"
+			"src/Utility/Uri"
 		]
 	}
 }
