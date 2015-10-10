@@ -15,9 +15,15 @@
 	},
 	"autoload":{
 		"classmap":[
+			"src/Wistia",
 			"src/Interfaces",
 			"src/Resources",
+			"src/Resources/Account",
+			"src/Resources/Captions",
+			"src/Resources/Customizations",
+			"src/Resources/Medias",
 			"src/Resources/Projects",
+			"src/Resources/Sharings",
 			"src/Utility/Curl",
 			"src/Utility/Output",
 			"src/Utility/Uri"
