@@ -2,9 +2,9 @@
 /**
 *   Uri Builder
 */
-namespace Wistia\Utility\API;
+namespace Wistia\Utility\Uri;
 
-class ApiFactory
+class Uri
 {
 
     /**
@@ -28,7 +28,7 @@ class ApiFactory
     *
     *   @var string
     */
-    protected $resource;
+    protected static $resource;
     
     
     /**
@@ -82,10 +82,12 @@ class ApiFactory
     
     /**
     *   Get Uri
+    *       - maybe change this in the future to take assoc array
+    *       and loop through array elements and str_replace with values
     *
     *   @param $item_id (optional) - wistia item id - project or media 
     */
-    public function getUri($item_id){
+    public  function getUri($item_id){
         if(!isset($this->resource) || !isset($this->action)){
             throw new \Exception("ApiFactory : getUri : resource or action is not set", 400);
         }

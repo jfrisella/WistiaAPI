@@ -4,7 +4,7 @@
 */
 namespace Wistia\Utility\Curl;
 
-class Curl implements \Wistia\Interfaces\Curl\iCurl
+class Curl implements \Wistia\Interfaces\iCurl
 {
 
     /**
@@ -106,14 +106,15 @@ class Curl implements \Wistia\Interfaces\Curl\iCurl
         $status = $h["http_code"];
         
         // Check for errors and display the error message
-        if(curl_errno($ch))
+        if($errno = \curl_errno($ch))
         {
-            curl_close($ch);
-            return false;
+            $error_message = \curl_strerror($errno);
+            \curl_close($ch);
+            throw new \Exception($error_message, 400);
         }
         
-		curl_close($ch);
-		return true;
+		\curl_close($ch);
+		return \Wistia\Utility\Output\Output::createOutput($status, $result);
     }
     
     
@@ -128,29 +129,30 @@ class Curl implements \Wistia\Interfaces\Curl\iCurl
     
         $q = http_build_query($params);
     
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_USERPWD, static::getBasicAuth());
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $q);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_POST, TRUE);
+		$ch = \curl_init();
+		\curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		\curl_setopt($ch, CURLOPT_URL, $url);
+		\curl_setopt($ch, CURLOPT_USERPWD, static::getBasicAuth());
+		\curl_setopt($ch, CURLOPT_POSTFIELDS, $q);
+        \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		\curl_setopt($ch, CURLOPT_POST, TRUE);
 		
-		$result = curl_exec($ch);
+		$result = \curl_exec($ch);
         
-        $h = curl_getinfo($ch);
+        $h = \curl_getinfo($ch);
         $status = $h["http_code"];
         
         
         // Check for errors and display the error message
-        if(curl_errno($ch))
+        if($errno = \curl_errno($ch))
         {
-            curl_close($ch);
-            return false;
+            $error_message = \curl_strerror($errno);
+            \curl_close($ch);
+            throw new \Exception($error_message, 400);
         }
         
-		curl_close($ch);
-		return true;
+		\curl_close($ch);
+		return \Wistia\Utility\Output\Output::createOutput($status, $result);
     }
     
     

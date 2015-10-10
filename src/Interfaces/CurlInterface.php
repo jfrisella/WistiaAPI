@@ -2,7 +2,7 @@
 /**
 *   Curl Interface
 */
-namespace Wistia\Interfaces\Curl;
+namespace Wistia\Interfaces;
 
 interface iCurl
 {

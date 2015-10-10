@@ -4,9 +4,16 @@
 */
 namespace Wistia\Resources\Projects;
 
-class Project extends \Wistia\Resources\Resource implements \Wistia\Interfaces\Projects\iProject
+class Project extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iProject
 {
     
+    /**
+    *   Resource Name
+    *
+    *   @var string
+    */
+     const RESOURCE_NAME = "Project";
+
     
     /**
     *   Create new Projects instance
@@ -23,8 +30,16 @@ class Project extends \Wistia\Resources\Resource implements \Wistia\Interfaces\P
     *
     *
     */
+    public function show($project_id){
+        
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", $project_id);
+        
+        return \Wistia\Utility\Curl\Curl::get($uri);
+        
+    }
+    
+    
     public function listOf(){}
-    public function show(){}
     public function create(){}
     public function update(){}
     public function delete(){}

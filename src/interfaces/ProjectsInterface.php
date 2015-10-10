@@ -2,7 +2,7 @@
 /**
 *   Wistia Projects Interface
 */
-namespace Wistia\Interfaces\Projects;
+namespace Wistia\Interfaces;
 
 interface iProject
 {
