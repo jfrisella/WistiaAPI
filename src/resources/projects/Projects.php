@@ -4,7 +4,7 @@
 */
 namespace Wistia\Resources\Projects;
 
-class Project extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iProject
+class Projects extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iProject
 {
     
     /**
@@ -12,7 +12,7 @@ class Project extends \Wistia\Resources\Resource implements \Wistia\Interfaces\i
     *
     *   @var string
     */
-     const RESOURCE_NAME = "Project";
+     const RESOURCE_NAME = "Projects";
 
     
     /**
@@ -34,7 +34,8 @@ class Project extends \Wistia\Resources\Resource implements \Wistia\Interfaces\i
         
         $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", $project_id);
         
-        return \Wistia\Utility\Curl\Curl::get($uri);
+        $curl = new \Wistia\Utility\Curl\Curl();
+        return $curl->get($uri);
         
     }
     

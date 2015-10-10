@@ -2,9 +2,9 @@
 /**
 *   Resource - Extendable Class
 */
-namespace Wistai\Resources;
+namespace Wistia\Resources;
 
-abstract class Resource
+class Resource
 {
 
     /**

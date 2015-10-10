@@ -20,7 +20,7 @@ class Uri
     *
     *   @var string
     */
-    protected $extension = "json";
+    protected static $extension = "json";
     
     
     /**
@@ -36,7 +36,7 @@ class Uri
     *
     *   @var string
     */
-    protected $action;
+    protected static $action;
     
     
     /**
@@ -88,13 +88,13 @@ class Uri
     *   @param $item_id (optional) - wistia item id - project or media 
     */
     public  function getUri($item_id){
-        if(!isset($this->resource) || !isset($this->action)){
+        if(!isset(static::$resource) || !isset(static::$action)){
             throw new \Exception("ApiFactory : getUri : resource or action is not set", 400);
         }
         
-        $l = $this->apiList[$this->resource][$this->action]["uri"];
+        $l = $this->apiList[static::$resource][static::$action]["uri"];
         $url = str_replace("{{ITEM-ID}}", $item_id, $l);
-        return $this->api . $url . "." . $extension;
+        return $this->api . $url . "." . static::$extension;
     }
     
     
@@ -102,10 +102,10 @@ class Uri
     *   Get Method
     */
     public function getMethod(){
-        if(!isset($this->resource) || !isset($this->action)){
+        if(!isset(static::$resource) || !isset(static::$action)){
             throw new \Exception("ApiFactory : getMethod : resource or action is not set", 400);
         }
-        return $this->apiList[$this->resource][$this->action]["method"];
+        return $this->apiList[static::$resource][static::$action]["method"];
     }
     
     
@@ -115,7 +115,7 @@ class Uri
     *   @param $resource - api resource name
     */
     public function setResource($resource){
-        $this->resource = $resource;
+        static::$resource = $resource;
     }
     
     
@@ -125,7 +125,7 @@ class Uri
     *   @param $action - api resource action
     */
     public function setAction($action){
-        $this->action = $action;
+        static::$action = $action;
     }
     
     
@@ -135,7 +135,7 @@ class Uri
     *   @param $extension - json or xml response type
     */
     public function setExtension($extension){
-        $this->extension = $extension;
+        static::$extension = $extension;
     }
     
 }

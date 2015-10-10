@@ -8,7 +8,7 @@ interface iProject
 {
 
     public function listOf();
-    public function show();
+    public function show($project_id);
     public function create();
     public function update();
     public function delete();
