@@ -15,7 +15,7 @@
 	},
 	"autoload":{
 		"psr-0":{
-			"Wistia":"src/"
+			"Wistia\\":"src"
 		}
 	}
 }
