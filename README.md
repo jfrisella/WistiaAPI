@@ -4,7 +4,7 @@ This is a `PHP` wrapper for the Wistia Data Api. A full list of Objects and Meth
 
 This is still in development.  I will remove this warning when it is safe to use.
 
-
+<br />
 Scenario 1: If you wanted to `show` a particular project with the id of `1234`
 
 ```php
@@ -17,7 +17,7 @@ $projects = \Wistia\Wistia::getResource("Projects", $apikey);
 $results = $projects->show("1234");
 
 ```
-
+<br />
 Scenario 2: If you wanted to `delete` a caption for a video `1234` with language `eng`
 
 ```php
@@ -30,7 +30,7 @@ $captions = \Wistia\Wistia::getResource("Captions", $apikey);
 $results = $captions->delete("1234", "eng");
 
 ```
-
+<br />
 The `$results` you receive from the methods is a simple object with three methods.
 
 ```php
