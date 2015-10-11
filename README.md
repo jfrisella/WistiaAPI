@@ -5,22 +5,44 @@ This is a `PHP` wrapper for the Wistia Data Api.
 This is still in development.  I will remove this warning when it is safe to use.
 
 
-Basic Usage: 
+Scenario 1: If you wanted to `show` a particular project with the id of `1234`
 
 ```php
 
 $apikey = "Your api key from wistia";
 
-//Request a particular resource object
+//Get Projects Object
 $projects = \Wistia\Wistia::getResource("Projects", $apikey);
 
-//Then call the method on the resource
+//Then call the method on the projects
+$results = $projects->show("1234");
 
-$results = $projects->show("some project id");
+if($results->isSuccess()){
 
-//or
+	echo $results->getResults();
 
-$results = $projects->delete("some project id");
+}else{
+	
+	echo $results->getStatus();
+	echo $results->getResults();
+
+}
+
+```
+
+Scenario 2: If you wanted to `delete` a caption for a video `1234` with language `eng`
+
+```php
+
+$apikey = "Your api key from wistia";
+
+//Get Projects Object
+$projects = \Wistia\Wistia::getResource("Captions", $apikey);
+
+//Then call the method on the projects
+$results = $projects->delete("1234", "eng");
+
+//do some stuff with the results output object
 
 ```
 
