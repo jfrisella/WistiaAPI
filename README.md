@@ -22,5 +22,49 @@ $results = $projects->show("some project id");
 
 $results = $projects->delete("some project id");
 
-
 ```
+
+
+The full list of Resources (Objects) and Actions (Methods) map directly to the Wistia Data Api.
+
+* Projects
+	- listOf
+	- show
+	- create
+	- update
+	- delete
+	- copy
+
+* Sharings
+	- list
+	- show
+	- create
+	- update
+	- delete
+
+* Medias
+	- list
+	- show
+	- update
+	- delete
+	- copy
+	- stats
+
+* Account
+	- get
+
+* Customizations
+	- show
+	- create
+	- update
+	- delete
+
+* Captions
+	- index
+	- create
+	- show
+	- update
+	- delete
+	- purchase
+
+
