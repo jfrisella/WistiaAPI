@@ -49,7 +49,7 @@ $results->isSuccess();
 
 ```
 
-
+<br />
 If for some weird reason you would like to instantiate the classes directly, you can!
 
 ```php
@@ -62,7 +62,7 @@ $captions = new \Wistia\Resources\Captions\Captions($apikey);
 $results = $captions->delete("1234", "eng");
 ```
 
-
+<br />
 The full list of Objects and Methods,  map directly to the Wistia Data Api (for the most part).
 Any place wistia uses `list`  we have to use `listOf`, since list is a protected word in php.
 
