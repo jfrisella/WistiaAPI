@@ -11,10 +11,10 @@ Basic Usage:
 
 $apikey = "Your api key from wistia";
 
-//Request a particular resource
+//Request a particular resource object
 $projects = \Wistia\Wistia::getResource("Projects", $apikey);
 
-//Then call the action on the resource
+//Then call the method on the resource
 
 $results = $projects->show("some project id");
 
@@ -25,7 +25,8 @@ $results = $projects->delete("some project id");
 ```
 
 
-The full list of Resources (Objects) and Actions (Methods) map directly to the Wistia Data Api.
+The full list of Objects and Methods,  map directly to the Wistia Data Api (for the most part).
+Any place wistia uses `list`  we have to use `listOf`, since list is a protected word in php.
 
 * Projects
 	- listOf
@@ -36,14 +37,14 @@ The full list of Resources (Objects) and Actions (Methods) map directly to the W
 	- copy
 
 * Sharings
-	- list
+	- listOf
 	- show
 	- create
 	- update
 	- delete
 
 * Medias
-	- list
+	- listOf
 	- show
 	- update
 	- delete
