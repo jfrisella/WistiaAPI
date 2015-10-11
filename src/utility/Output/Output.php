@@ -74,7 +74,7 @@ class Output implements \Wistia\Interfaces\iOutput
     *   @return boolean
     */
     public function isSuccess(){
-        return intval($this->status) === 200;
+        return intval($this->status) === 200 || intval($this->status) === 201;
     }
 
 }
