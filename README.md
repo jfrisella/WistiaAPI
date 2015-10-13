@@ -1,4 +1,4 @@
-# WistiaAPI
+# Wistia API Wrapper
 
 This is a `PHP` wrapper for the Wistia Data Api. A full list of Objects and Methods are at the bottom.
 
@@ -27,7 +27,9 @@ $apikey = "Your api key from wistia";
 $captions = \Wistia\Wistia::getResource("Captions", $apikey);
 
 //Then call the method on captions
-$results = $captions->delete("1234", "eng");
+$results = $captions->delete("1234", array(
+	"language" => "eng"
+));
 
 ```
 <br />
@@ -68,6 +70,7 @@ Any place wistia uses `list`  we have to use `listOf`, since list is a protected
 
 * Projects
 	- listOf
+		
 	- show
 	- create
 	- update

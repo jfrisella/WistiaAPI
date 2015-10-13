@@ -33,7 +33,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Interfaces\
     */
     public function show($project_id){
         
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", $project_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", ["PROJECT-ID" => $project_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->get($uri);
@@ -81,7 +81,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Interfaces\
     */
     public function update($project_id, array $params = array()){
     
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "update", $project_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "update",["PROJECT-ID" => $project_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->put($uri, $params);
@@ -96,7 +96,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Interfaces\
     */
     public function delete($project_id){
     
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "delete", $project_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["PROJECT-ID" => $project_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->delete($uri);
@@ -112,7 +112,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Interfaces\
     */
     public function copy($project_id, array $params = array()){
         
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "copy", $project_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "copy", ["PROJECT-ID" => $project_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->post($uri, $params);

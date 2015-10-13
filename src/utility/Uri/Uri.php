@@ -52,7 +52,7 @@ class Uri
             ],
             "show" => [
                 "method" => "GET",
-                "uri" => "projects/{{ITEM-ID}}"
+                "uri" => "projects/{{PROJECT-ID}}"
             ],
             "create" => [
                 "method" => "POST",
@@ -60,15 +60,118 @@ class Uri
             ],
             "update" => [
                 "method" => "PUT",
-                "uri" => "projects/{{ITEM-ID}}"
+                "uri" => "projects/{{PROJECT-ID}}"
             ],
             "delete" => [
                 "method" => "DELETE",
-                "uri" => "projects/{{ITEM-ID}}"
+                "uri" => "projects/{{PROJECT-ID}}"
             ],
             "copy" => [
                 "method" => "POST",
-                "uri" => "projects/{{ITEM-ID}}/copy"
+                "uri" => "projects/{{PROJECT-ID}}/copy"
+            ]
+        ],
+        
+        "Sharings" => [
+            "list" => [
+                "method" => "GET",
+                "uri" => "projects/{{PROJECT-ID}}/sharings"
+            ],
+            "show" => [
+                "method" => "GET",
+                "uri" => "projects/{{PROJECT-ID}}/sharings/{{SHARING-ID}}"
+            ],
+            "create" => [
+                "method" => "POST",
+                "uri" => "projects/{{PROJECT-ID}}/sharings"
+            ],
+            "update" => [
+                "method" => "PUT",
+                "uri" => "projects/{{PROJECT-ID}}/sharings/{{SHARING-ID}}"
+            ],
+            "delete" => [
+                "method" => "DELETE",
+                "uri" => "projects/{{PROJECT-ID}}/sharings/{{SHARING-ID}}"
+            ]
+        ],
+        
+        "Medias" => [
+            "listOf" => [
+                "method" => "GET",
+                "uri" => "medias"
+            ],
+            "show" => [
+                "method" => "GET",
+                "uri" => "medias/{{MEDIA-ID}}"
+            ],
+            "update" => [
+                "method" => "PUT",
+                "uri" => "medias/{{MEDIA-ID}}"
+            ],
+            "delete" => [
+                "method" => "DELETE",
+                "uri" => "medias/{{MEDIA-ID}}"
+            ],
+            "copy" => [
+                "method" => "POST",
+                "uri" => "medias/{{MEDIA-ID}}/copy"
+            ],
+            "stats" => [
+                "method" => "GET",
+                "uri" => "medias/{{MEDIA-ID}}/stats"
+            ]
+        ],
+        
+        "Account" => [
+            "get" => [
+                "method" => "GET",
+                "uri" => "account"
+            ]
+        ],
+        
+        "Customizations" => [
+            "show" => [
+                "method" => "GET",
+                "uri" => "medias/{{MEDIA-ID}}/customizations"
+            ],
+            "create" => [
+                "method" => "POST",
+                "uri" => "medias/{{MEDIA-ID}}/customizations"
+            ],
+            "update" => [
+                "method" => "PUT",
+                "uri" => "medias/{{MEDIA-ID}}/customizations"
+            ],
+            "delete" => [
+                "method" => "DELETE",
+                "uri" => "medias/{{MEDIA-ID}}/customizations"
+            ]
+        ],
+        
+        "Captions" => [
+            "index" => [
+                "method" => "GET",
+                "uri" => "medias/{{MEDIA-ID}}/captions"
+            ],
+            "create" => [
+                "method" => "POST",
+                "uri" => "medias/{{MEDIA-ID}}/captions"
+            ],
+            "show" => [
+                "method" => "GET",
+                "uri" => "medias/{{MEDIA-ID}}/captions/{{LANGUAGE}}"
+            ],
+            "update" => [
+                "method" => "PUT",
+                "uri" => "medias/{{MEDIA-ID}}/captions/{{LANGUAGE}}"
+            ],
+            "delete" => [
+                "method" => "DELETE",
+                "uri" => "medias/{{MEDIA-ID}}/captions/{{LANGUAGE}}"
+            ],
+            "purchase" => [
+                "method" => "POST",
+                "uri" => "medias/{{MEDIA-ID}}/captions/purchase"
             ]
         ]
     ];
@@ -82,19 +185,21 @@ class Uri
     
     /**
     *   Get Uri
-    *       - maybe change this in the future to take assoc array
-    *       and loop through array elements and str_replace with values
     *
-    *   @param $item_id (optional) - wistia item id - project or media 
+    *   @param $url_params (optional) - associative array of items to be added to uri
     */
-    public  function getUri($item_id){
+    public  function getUri(array $url_params = array()){
         if(!isset(static::$resource) || !isset(static::$action)){
             throw new \Exception("ApiFactory : getUri : resource or action is not set", 400);
         }
         
-        $l = $this->apiList[static::$resource][static::$action]["uri"];
-        $url = str_replace("{{ITEM-ID}}", $item_id, $l);
-        return $this->api . $url . "." . static::$extension;
+        $uri = $this->apiList[static::$resource][static::$action]["uri"];
+        
+        foreach($url_params as $key => $value){
+            $uri = str_replace($key, $value, $uri);
+        }
+        
+        return $this->api . $uri . "." . static::$extension;
     }
     
     
