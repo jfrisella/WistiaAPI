@@ -20,7 +20,7 @@
 
     <section class="main-content">
       <h1>
-<a id="wistiaapi" class="anchor" href="#wistiaapi" aria-hidden="true"><span class="octicon octicon-link"></span></a>WistiaAPI</h1>
+<a id="wistia-api-wrapper" class="anchor" href="#wistia-api-wrapper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wistia API Wrapper</h1>
 
 <p>This is a <code>PHP</code> wrapper for the Wistia Data Api. A full list of Objects and Methods are at the bottom.</p>
 
@@ -47,7 +47,9 @@ Scenario 2: If you wanted to <code>delete</code> a caption for a video <code>123
 <span class="pl-s1"><span class="pl-smi">$captions</span> <span class="pl-k">=</span> <span class="pl-c1">\Wistia\</span><span class="pl-c1">Wistia</span><span class="pl-k">::</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>Captions<span class="pl-pds">"</span></span>, <span class="pl-smi">$apikey</span>);</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">//Then call the method on captions</span></span>
-<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>eng<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">"</span>language<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>eng<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">));</span>
 <span class="pl-s1"></span></pre></div>
 
 <p><br>
@@ -76,7 +78,9 @@ If for some weird reason you would like to instantiate the classes directly, you
 <span class="pl-s1"><span class="pl-smi">$captions</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Wistia\Resources\Captions\</span><span class="pl-c1">Captions</span>(<span class="pl-smi">$apikey</span>);</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">//Then call the method on captions</span></span>
-<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>eng<span class="pl-pds">"</span></span>);</span></pre></div>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">"</span>language<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">));</span></pre></div>
 
 <p><br>
 The full list of Objects and Methods,  map directly to the Wistia Data Api (for the most part).
@@ -87,8 +91,8 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 <p>Projects</p>
 
 <ul>
-<li>listOf</li>
-<li>show</li>
+<li><p>listOf</p></li>
+<li><p>show</p></li>
 <li>create</li>
 <li>update</li>
 <li>delete</li>
