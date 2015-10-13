@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Wistiaapi by jfrisella</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Wistiaapi</h1>
+          <h2>interface for wistia api</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jfrisella/WistiaAPI/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jfrisella/WistiaAPI/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jfrisella/WistiaAPI" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="wistiaapi" class="anchor" href="#wistiaapi" aria-hidden="true"><span class="octicon octicon-link"></span></a>WistiaAPI</h1>
+
+<p>This is a <code>PHP</code> wrapper for the Wistia Data Api. A full list of Objects and Methods are at the bottom.</p>
+
+<p>This is still in development.  I will remove this warning when it is safe to use.</p>
+
+<p><br>
+Scenario 1: If you wanted to <code>show</code> a particular project with the id of <code>1234</code></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Your api key from wistia<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Get Projects Object</span></span>
+<span class="pl-s1"><span class="pl-smi">$projects</span> <span class="pl-k">=</span> <span class="pl-c1">\Wistia\</span><span class="pl-c1">Wistia</span><span class="pl-k">::</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>Projects<span class="pl-pds">"</span></span>, <span class="pl-smi">$apikey</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Then call the method on the projects</span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$projects</span><span class="pl-k">-&gt;</span>show(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span></pre></div>
+
+<p><br>
+Scenario 2: If you wanted to <code>delete</code> a caption for a video <code>1234</code> with language <code>eng</code></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Your api key from wistia<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Get Captions Object</span></span>
+<span class="pl-s1"><span class="pl-smi">$captions</span> <span class="pl-k">=</span> <span class="pl-c1">\Wistia\</span><span class="pl-c1">Wistia</span><span class="pl-k">::</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>Captions<span class="pl-pds">"</span></span>, <span class="pl-smi">$apikey</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Then call the method on captions</span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>eng<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span></pre></div>
+
+<p><br>
+The <code>$results</code> you receive from the methods is a simple object with three methods.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$projects</span><span class="pl-k">-&gt;</span>show(<span class="pl-s"><span class="pl-pds">"</span>project id<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Get Status Code from Response Header</span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span><span class="pl-k">-&gt;</span>getStatus();    <span class="pl-c">//200 or 201 or 404 ...</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Get Response JSON string </span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span><span class="pl-k">-&gt;</span>getResults();   <span class="pl-c">//{"wistia":"json"}</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Test if result is Successful</span></span>
+<span class="pl-s1"><span class="pl-c">//returns true if status === 200 or 201</span></span>
+<span class="pl-s1"><span class="pl-c">//and false for everything else</span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span><span class="pl-k">-&gt;</span>isSuccess();      </span>
+<span class="pl-s1"></span></pre></div>
+
+<p><br>
+If for some weird reason you would like to instantiate the classes directly, you can!</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Your api key from wistia<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Get Captions Object</span></span>
+<span class="pl-s1"><span class="pl-smi">$captions</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Wistia\Resources\Captions\</span><span class="pl-c1">Captions</span>(<span class="pl-smi">$apikey</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Then call the method on captions</span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>eng<span class="pl-pds">"</span></span>);</span></pre></div>
+
+<p><br>
+The full list of Objects and Methods,  map directly to the Wistia Data Api (for the most part).
+Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, since list is a protected word in php.</p>
+
+<ul>
+<li>
+<p>Projects</p>
+
+<ul>
+<li>listOf</li>
+<li>show</li>
+<li>create</li>
+<li>update</li>
+<li>delete</li>
+<li>copy</li>
+</ul>
+</li>
+<li>
+<p>Sharings</p>
+
+<ul>
+<li>listOf</li>
+<li>show</li>
+<li>create</li>
+<li>update</li>
+<li>delete</li>
+</ul>
+</li>
+<li>
+<p>Medias</p>
+
+<ul>
+<li>listOf</li>
+<li>show</li>
+<li>update</li>
+<li>delete</li>
+<li>copy</li>
+<li>stats</li>
+</ul>
+</li>
+<li>
+<p>Account</p>
+
+<ul>
+<li>get</li>
+</ul>
+</li>
+<li>
+<p>Customizations</p>
+
+<ul>
+<li>show</li>
+<li>create</li>
+<li>update</li>
+<li>delete</li>
+</ul>
+</li>
+<li>
+<p>Captions</p>
+
+<ul>
+<li>index</li>
+<li>create</li>
+<li>show</li>
+<li>update</li>
+<li>delete</li>
+<li>purchase</li>
+</ul>
+</li>
+</ul>
+        </section>
+
+        <footer>
+          Wistiaapi is maintained by <a href="https://github.com/jfrisella">jfrisella</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
