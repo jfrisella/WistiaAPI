@@ -61,7 +61,9 @@ $apikey = "Your api key from wistia";
 $captions = new \Wistia\Resources\Captions\Captions($apikey);
 
 //Then call the method on captions
-$results = $captions->delete("1234", "eng");
+$results = $captions->delete("1234", array(
+	"language"
+));
 ```
 
 <br />
