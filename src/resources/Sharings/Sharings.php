@@ -26,24 +26,83 @@ class Sharings extends \Wistia\Resources\Resource implements \Wistia\Interfaces\
     
     
     /**
-    *
-    *
-    *
+    *   List Sharings
+    *   
+    *   @param $project_id - wistia project id
+    *   @param $params - listing parameters see Wistia API
     */
-    public function show($project_id){
-        
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", $project_id);
+    public function listOf($project_id, array $params = array()){
+    
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "listOf", ["PROJECT-ID" => $project_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
-        return $curl->get($uri);
+        return $curl->get($uri, $params);
+    }
+    
+    
+    /**
+    *   Show Sharings
+    *   See the details of a particular sharing on a project.
+    *
+    *   @param $project_id - wistia project id
+    *   @param $sharing_id - wistia id of a specific sharing object
+    *   @param $params - other parameters
+    */
+    public function show($project_id, $sharing_id, array $params = array()){
+        
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", ["PROJECT-ID" => $project_id, "SHARING-ID" => $sharing_id]);
+        
+        $curl = new \Wistia\Utility\Curl\Curl();
+        return $curl->get($uri, $params);
         
     }
     
     
-    public function listOf(){}
-    public function create(){}
-    public function update(){}
-    public function delete(){}
-    public function copy(){}
+    /**
+    *   Create Project Sharings
+    *
+    *   @param $project_id - wistia project id
+    *   @param $params - other parameters
+    */
+    public function create($project_id, array $params = array()){
+    
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "create", ["PROJECT-ID" => $project_id]);
+        
+        $curl = new \Wistia\Utility\Curl\Curl();
+        return $curl->post($uri, $params);
+    }
+    
+    
+    /**
+    *   Update Project Sharings
+    *
+    *   @param $project_id - wistia project id
+    *   @param $sharing_id - wistia id of a specific sharing object
+    *   @param $params - other parameters
+    */
+    public function update($project_id, $sharing_id, array $params = array()){
+        
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "update", ["PROJECT-ID" => $project_id, "SHARING-ID" => $sharing_id]);
+        
+        $curl = new \Wistia\Utility\Curl\Curl();
+        return $curl->put($uri, $params);
+    }
+    
+    
+    /**
+    *   Delete Project Sharings
+    *
+    *   @param $project_id - wistia project id
+    *   @param $sharing_id - wistia id of a specific sharing object
+    *   @param $params - other parameters
+    */
+    public function delete($project_id, $sharing_id, array $params = array()){
+        
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["PROJECT-ID" => $project_id, "SHARING-ID" => $sharing_id]);
+        
+        $curl = new \Wistia\Utility\Curl\Curl();
+        return $curl->delete($uri, $params);
+    }
+    
 
 }

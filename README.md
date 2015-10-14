@@ -72,7 +72,6 @@ Any place wistia uses `list`  we have to use `listOf`, since list is a protected
 
 * Projects
 	- listOf
-		
 	- show
 	- create
 	- update
