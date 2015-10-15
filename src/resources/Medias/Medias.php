@@ -26,11 +26,26 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iM
     
     
     /**
+    *   Medias List
     *
+    *   @param $params - listing parameters see Wistia API
+    */
+    public function listOf(array $params = array()){
+        
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "listOf");
+        
+        $curl = new \Wistia\Utility\Curl\Curl();
+        return $curl->get($uri, $params);
+        
+    }
+    
+    
+    /**
+    *   Show Medias
     *
     *
     */
-    public function show($project_id){
+    public function show($media_id, array $params = array()){
         
         $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", $project_id);
         
@@ -40,7 +55,6 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iM
     }
     
     
-    public function listOf(){}
     public function update(){}
     public function delete(){}
     public function copy(){}
