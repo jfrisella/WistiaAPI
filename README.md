@@ -78,40 +78,66 @@ Any place wistia uses `list`  we have to use `listOf`, since list is a protected
 		* $project_id - wistia api hashed project id
 		* [$params] - wistia api parameters see Wistia documentation
 	- create
+		* [$params] - wistia api parameters see Wistia documentation
 	- update
+		* [$params] - wistia api parameters see Wistia documentation
 	- delete
+		* [$params] - wistia api parameters see Wistia documentation
 	- copy
+		* [$params] - wistia api parameters see Wistia documentation
 
 * Sharings
 	- listOf
+		* [$params] - wistia api parameters see Wistia documentation
 	- show
+		* [$params] - wistia api parameters see Wistia documentation
 	- create
+		* [$params] - wistia api parameters see Wistia documentation
 	- update
+		* [$params] - wistia api parameters see Wistia documentation
 	- delete
+		* [$params] - wistia api parameters see Wistia documentation
 
 * Medias
 	- listOf
+		* [$params] - wistia api parameters see Wistia documentation
 	- show
+		* [$params] - wistia api parameters see Wistia documentation
 	- update
+		* [$params] - wistia api parameters see Wistia documentation
 	- delete
+		* [$params] - wistia api parameters see Wistia documentation
 	- copy
+		* [$params] - wistia api parameters see Wistia documentation
 	- stats
+		* [$params] - wistia api parameters see Wistia documentation
 
 * Account
 	- get
+		* [$params] - wistia api parameters see Wistia documentation
 
 * Customizations
 	- show
+		* [$params] - wistia api parameters see Wistia documentation
 	- create
+		* [$params] - wistia api parameters see Wistia documentation
 	- update
+		* [$params] - wistia api parameters see Wistia documentation
 	- delete
+		* [$params] - wistia api parameters see Wistia documentation
 
 * Captions
 	- index
+		* [$params] - wistia api parameters see Wistia documentation
 	- create
+		* [$params] - wistia api parameters see Wistia documentation
 	- show
+		* [$params] - wistia api parameters see Wistia documentation
 	- update
+		* [$params] - wistia api parameters see Wistia documentation
 	- delete
+		* [$params] - wistia api parameters see Wistia documentation
 	- purchase
+		* [$params] - wistia api parameters see Wistia documentation
 
 
