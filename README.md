@@ -67,12 +67,16 @@ $results = $captions->delete("1234", array(
 ```
 
 <br />
-The full list of Objects and Methods,  map directly to the Wistia Data Api (for the most part).
-Any place wistia uses `list`  we have to use `listOf`, since list is a protected word in php.
+The full list of Objects, Methods and their parameters,  map directly to the Wistia Data Api (for the most part).
+Any place wistia uses `list`  we have to use `listOf`, since list is a protected word in php. The break down of the list below is
+`Object -> Method -> Parameter`.  `[$param] =  Optional parameter`
 
 * Projects
 	- listOf
+		* [$params] - wistia api parameters see Wistia documentation
 	- show
+		* $project_id - wistia api hashed project id
+		* [$params] - wistia api parameters see Wistia documentation
 	- create
 	- update
 	- delete
