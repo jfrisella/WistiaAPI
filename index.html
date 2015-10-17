@@ -83,72 +83,220 @@ If for some weird reason you would like to instantiate the classes directly, you
 <span class="pl-s1">));</span></pre></div>
 
 <p><br>
-The full list of Objects and Methods,  map directly to the Wistia Data Api (for the most part).
-Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, since list is a protected word in php.</p>
+The full list of Objects, Methods and their parameters,  map directly to the Wistia Data Api (for the most part).
+Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, since list is a protected word in php. The break down of the list below is
+<code>Object -&gt; Method -&gt; Parameter</code>.  <code>[$param] =  Optional parameter</code></p>
 
 <ul>
 <li>
 <p>Projects</p>
 
 <ul>
-<li><p>listOf</p></li>
-<li><p>show</p></li>
-<li>create</li>
-<li>update</li>
-<li>delete</li>
-<li>copy</li>
+<li>listOf
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>show
+
+<ul>
+<li>$project_id - wistia api hashed project id</li>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>create
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>update
+
+<ul>
+<li>$project_id - wistia api hashed project id</li>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>delete
+
+<ul>
+<li>$project_id - wistia api hashed project id</li>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>copy
+
+<ul>
+<li>$project_id - wistia api hashed project id</li>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p>Sharings</p>
 
 <ul>
-<li>listOf</li>
-<li>show</li>
-<li>create</li>
-<li>update</li>
-<li>delete</li>
+<li>listOf
+
+<ul>
+<li>$project_id - wistia api hashed project id</li>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>show
+
+<ul>
+<li>$project_id - wistia api hashed project id</li>
+<li>$sharing_id - wistia api hashed sharing id</li>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>create
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>update
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>delete
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p>Medias</p>
 
 <ul>
-<li>listOf</li>
-<li>show</li>
-<li>update</li>
-<li>delete</li>
-<li>copy</li>
-<li>stats</li>
+<li>listOf
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>show
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>update
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>delete
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>copy
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>stats
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p>Account</p>
 
 <ul>
-<li>get</li>
+<li>get
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p>Customizations</p>
 
 <ul>
-<li>show</li>
-<li>create</li>
-<li>update</li>
-<li>delete</li>
+<li>show
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>create
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>update
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>delete
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p>Captions</p>
 
 <ul>
-<li>index</li>
-<li>create</li>
-<li>show</li>
-<li>update</li>
-<li>delete</li>
-<li>purchase</li>
+<li>index
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>create
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>show
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>update
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>delete
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
+<li>purchase
+
+<ul>
+<li>[$params] - wistia api parameters see Wistia documentation</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
