@@ -80,16 +80,22 @@ Any place wistia uses `list`  we have to use `listOf`, since list is a protected
 	- create
 		* [$params] - wistia api parameters see Wistia documentation
 	- update
+		* $project_id - wistia api hashed project id
 		* [$params] - wistia api parameters see Wistia documentation
 	- delete
+		* $project_id - wistia api hashed project id
 		* [$params] - wistia api parameters see Wistia documentation
 	- copy
+		* $project_id - wistia api hashed project id
 		* [$params] - wistia api parameters see Wistia documentation
 
 * Sharings
 	- listOf
+		* $project_id - wistia api hashed project id
 		* [$params] - wistia api parameters see Wistia documentation
 	- show
+		* $project_id - wistia api hashed project id
+		* $sharing_id - wistia api hashed sharing id
 		* [$params] - wistia api parameters see Wistia documentation
 	- create
 		* [$params] - wistia api parameters see Wistia documentation
