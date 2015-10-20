@@ -36,7 +36,7 @@ if($results->isSuccess()){
 
 <br />
 <br />
-Scenario 1: If you wanted to `show` a particular project with the id of `1234`
+Scenario 1: If you wanted to `show` a particular project with the id of `xyz123`
 
 ```php
 //Your wistia api key
@@ -53,7 +53,7 @@ $results = $projects->show($project_id);
 ```
 <br />
 <br />
-Scenario 2: If you wanted to `delete` a caption for a video `1234` with language `eng`
+Scenario 2: If you wanted to `delete` a caption for a video `xyz123` with language `eng`
 
 ```php
 //Your wistia api key
