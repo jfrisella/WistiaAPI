@@ -24,35 +24,73 @@
 
 <p>This is a <code>PHP</code> wrapper for the Wistia Data Api. A full list of Objects and Methods are at the bottom.</p>
 
-<p>This is still in development.  I will remove this warning when it is safe to use.</p>
+<p>Basic usage:</p>
 
-<p><br>
-Scenario 1: If you wanted to <code>show</code> a particular project with the id of <code>1234</code></p>
-
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Your api key from wistia<span class="pl-pds">"</span></span>;</span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">//Your wistia api key</span></span>
+<span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>abcdefg123456<span class="pl-pds">"</span></span>;</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c">//Get Projects Object</span></span>
-<span class="pl-s1"><span class="pl-smi">$projects</span> <span class="pl-k">=</span> <span class="pl-c1">\Wistia\</span><span class="pl-c1">Wistia</span><span class="pl-k">::</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>Projects<span class="pl-pds">"</span></span>, <span class="pl-smi">$apikey</span>);</span>
+<span class="pl-s1"><span class="pl-c">//A wistia media id</span></span>
+<span class="pl-s1"><span class="pl-smi">$media_id</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>xyz123<span class="pl-pds">"</span></span>;</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c">//Then call the method on the projects</span></span>
-<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$projects</span><span class="pl-k">-&gt;</span>show(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-c">//Get a Medias Resource</span></span>
+<span class="pl-s1"><span class="pl-smi">$media</span> <span class="pl-k">=</span> <span class="pl-c1">\Wistia\</span><span class="pl-c1">Wistia</span><span class="pl-k">::</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>Medias<span class="pl-pds">"</span></span>, <span class="pl-smi">$apikey</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Call the Api Method on the resource</span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$media</span><span class="pl-k">-&gt;</span>show(<span class="pl-smi">$media_id</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Now test if api call was successful</span></span>
+<span class="pl-s1"><span class="pl-k">if</span>(<span class="pl-smi">$results</span><span class="pl-k">-&gt;</span>isSuccess()){</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">//It was successful</span></span>
+<span class="pl-s1">    <span class="pl-c">//now get results</span></span>
+<span class="pl-s1">    <span class="pl-c">//and do something</span></span>
+<span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$results</span><span class="pl-k">-&gt;</span>getResults();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">}<span class="pl-k">else</span>{</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">//Not successful</span></span>
+<span class="pl-s1">    <span class="pl-c">//So do something</span></span>
+<span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$results</span><span class="pl-k">-&gt;</span>getStatus();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">}</span>
 <span class="pl-s1"></span></pre></div>
 
 <p><br>
-Scenario 2: If you wanted to <code>delete</code> a caption for a video <code>1234</code> with language <code>eng</code></p>
+<br>
+Scenario 1: If you wanted to <code>show</code> a particular project with the id of <code>xyz123</code></p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Your api key from wistia<span class="pl-pds">"</span></span>;</span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">//Your wistia api key</span></span>
+<span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>abcdefg123456<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$project_id</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>xyz123<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Get Projects Resource</span></span>
+<span class="pl-s1"><span class="pl-smi">$projects</span> <span class="pl-k">=</span> <span class="pl-c1">\Wistia\</span><span class="pl-c1">Wistia</span><span class="pl-k">::</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>Projects<span class="pl-pds">"</span></span>, <span class="pl-smi">$apikey</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">//Then call the method on the project</span></span>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$projects</span><span class="pl-k">-&gt;</span>show(<span class="pl-smi">$project_id</span>);</span>
+<span class="pl-s1"></span></pre></div>
+
+<p><br>
+<br>
+Scenario 2: If you wanted to <code>delete</code> a caption for a video <code>xyz123</code> with language <code>eng</code></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">//Your wistia api key</span></span>
+<span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>abcdefg123456<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$media_id</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>xyz123<span class="pl-pds">"</span></span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">//Get Captions Object</span></span>
 <span class="pl-s1"><span class="pl-smi">$captions</span> <span class="pl-k">=</span> <span class="pl-c1">\Wistia\</span><span class="pl-c1">Wistia</span><span class="pl-k">::</span>getResource(<span class="pl-s"><span class="pl-pds">"</span>Captions<span class="pl-pds">"</span></span>, <span class="pl-smi">$apikey</span>);</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">//Then call the method on captions</span></span>
-<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-c1">array</span>(</span>
-<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">"</span>language<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>eng<span class="pl-pds">"</span></span></span>
-<span class="pl-s1">));</span>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-smi">$media_id</span>, <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">                                            <span class="pl-s"><span class="pl-pds">"</span>language<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>eng<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">                                        ));</span>
 <span class="pl-s1"></span></pre></div>
 
 <p><br>
+<br>
 The <code>$results</code> you receive from the methods is a simple object with three methods.</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$projects</span><span class="pl-k">-&gt;</span>show(<span class="pl-s"><span class="pl-pds">"</span>project id<span class="pl-pds">"</span></span>);</span>
@@ -72,20 +110,24 @@ The <code>$results</code> you receive from the methods is a simple object with t
 <p><br>
 If for some weird reason you would like to instantiate the classes directly, you can!</p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Your api key from wistia<span class="pl-pds">"</span></span>;</span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">//Your wistia api key</span></span>
+<span class="pl-s1"><span class="pl-smi">$apikey</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>abcdefg123456<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$media_id</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>xyz123<span class="pl-pds">"</span></span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">//Get Captions Object</span></span>
 <span class="pl-s1"><span class="pl-smi">$captions</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\Wistia\Resources\Captions\</span><span class="pl-c1">Captions</span>(<span class="pl-smi">$apikey</span>);</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">//Then call the method on captions</span></span>
-<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">"</span>1234<span class="pl-pds">"</span></span>, <span class="pl-c1">array</span>(</span>
-<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">"</span>language<span class="pl-pds">"</span></span></span>
-<span class="pl-s1">));</span></pre></div>
+<span class="pl-s1"><span class="pl-smi">$results</span> <span class="pl-k">=</span> <span class="pl-smi">$captions</span><span class="pl-k">-&gt;</span>delete(<span class="pl-smi">$media_id</span>, <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">                                            <span class="pl-s"><span class="pl-pds">"</span>language<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">                                        ));</span></pre></div>
 
 <p><br>
 The full list of Objects, Methods and their parameters,  map directly to the Wistia Data Api (for the most part).
 Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, since list is a protected word in php. The break down of the list below is
-<code>Object -&gt; Method -&gt; Parameter</code>.  <code>[$param] =  Optional parameter</code></p>
+<code>Object -&gt; Method -&gt; Parameter</code>.  <code>[$param] =  Optional parameter</code>
+<br><br></p>
 
 <ul>
 <li>
@@ -95,41 +137,54 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 <li>listOf
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>show
 
 <ul>
 <li>$project_id - wistia api hashed project id</li>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>create
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>update
 
 <ul>
 <li>$project_id - wistia api hashed project id</li>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>delete
 
 <ul>
 <li>$project_id - wistia api hashed project id</li>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>copy
 
 <ul>
 <li>$project_id - wistia api hashed project id</li>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+<br>
+</li>
 </ul>
 </li>
 </ul>
@@ -142,7 +197,9 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 
 <ul>
 <li>$project_id - wistia api hashed project id</li>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>show
@@ -150,25 +207,39 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 <ul>
 <li>$project_id - wistia api hashed project id</li>
 <li>$sharing_id - wistia api hashed sharing id</li>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>create
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$project_id - wistia api hashed project id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>update
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$project_id - wistia api hashed project id</li>
+<li>$sharing_id - wistia api hashed sharing id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>delete
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$project_id - wistia api hashed project id</li>
+<li>$sharing_id - wistia api hashed sharing id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+<br>
+</li>
 </ul>
 </li>
 </ul>
@@ -180,37 +251,55 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 <li>listOf
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>show
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>update
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>delete
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>copy
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>stats
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+<br>
+</li>
 </ul>
 </li>
 </ul>
@@ -222,7 +311,10 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 <li>get
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+<br>
+</li>
 </ul>
 </li>
 </ul>
@@ -234,25 +326,38 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 <li>show
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>create
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>update
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>delete
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+<br>
+</li>
 </ul>
 </li>
 </ul>
@@ -264,37 +369,58 @@ Any place wistia uses <code>list</code>  we have to use <code>listOf</code>, sin
 <li>index
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>create
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>show
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>$language_code - ISO-639-2 language code - three letter code</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>update
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>$language_code - ISO-639-2 language code - three letter code</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>delete
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>$language_code - ISO-639-2 language code - three letter code</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 <li>purchase
 
 <ul>
-<li>[$params] - wistia api parameters see Wistia documentation</li>
+<li>$media_id - wistia api hashed media id</li>
+<li>[$params] - wistia api parameters see Wistia documentation
+<br>
+</li>
 </ul>
 </li>
 </ul>
