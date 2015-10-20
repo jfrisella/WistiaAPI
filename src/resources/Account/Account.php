@@ -25,12 +25,17 @@ class Account extends \Wistia\Resources\Resource implements \Wistia\Interfaces\i
     }
     
     
-    public function get(){
+    /**
+    *   Get Account
+    *
+    *   @param $params - listing parameters see Wistia API
+    */
+    public function get(array $params = array()){
         
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "get", $project_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "get");
         
         $curl = new \Wistia\Utility\Curl\Curl();
-        return $curl->get($uri);
+        return $curl->get($uri, $params);
         
     }
 

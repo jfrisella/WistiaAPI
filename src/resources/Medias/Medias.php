@@ -48,7 +48,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iM
     */
     public function show($media_id, array $params = array()){
         
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", $media_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", ["MEDIA-ID" => $media_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->get($uri, $params);
@@ -64,7 +64,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iM
     */
     public function update($media_id, array $params = array()){
         
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "update", $media_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "update", ["MEDIA-ID" => $media_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->put($uri, $params);
@@ -79,7 +79,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iM
     */
     public function delete($media_id, array $params = array()){
     
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "delete", $media_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["MEDIA-ID" => $media_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->delete($uri, $params);
@@ -94,7 +94,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iM
     */
     public function copy($media_id, array $params = array()){
     
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "copy", $media_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "copy", ["MEDIA-ID" => $media_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->post($uri, $params);
@@ -109,7 +109,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iM
     */
     public function stats($media_id, array $params = array()){
     
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "stats", $media_id);
+        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "stats", ["MEDIA-ID" => $media_id]);
         
         $curl = new \Wistia\Utility\Curl\Curl();
         return $curl->get($uri, $params);
