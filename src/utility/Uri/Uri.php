@@ -188,7 +188,7 @@ class Uri
     *
     *   @param $url_params (optional) - associative array of items to be added to uri
     */
-    public  function getUri(array $url_params = array()){
+    public function getUri(array $url_params = array()){
         if(!isset(static::$resource) || !isset(static::$action)){
             throw new \Exception("ApiFactory : getUri : resource or action is not set", 400);
         }
@@ -196,7 +196,7 @@ class Uri
         $uri = $this->apiList[static::$resource][static::$action]["uri"];
         
         foreach($url_params as $key => $value){
-            $uri = str_replace($key, $value, $uri);
+            $uri = str_replace("{{" . $key . "}}", $value, $uri);
         }
         
         return $this->api . $uri . "." . static::$extension;
