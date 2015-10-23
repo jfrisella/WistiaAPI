@@ -28,7 +28,7 @@ class OutputTest extends PHPUnit_Framework_TestCase
     
     public function testResults(){
     
-        $this->assertEquals(["results" => true], $this->output->getResults());
+        $this->assertEquals(["result" => true], $this->output->getResults());
     
     }
 
