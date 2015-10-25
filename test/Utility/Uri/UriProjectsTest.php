@@ -35,7 +35,7 @@ class UriProjectsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/projects.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action)
         );
     }
     
