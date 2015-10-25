@@ -73,7 +73,7 @@ class Uri
         ],
         
         "Sharings" => [
-            "list" => [
+            "listOf" => [
                 "method" => "GET",
                 "uri" => "projects/{{PROJECT-ID}}/sharings"
             ],
