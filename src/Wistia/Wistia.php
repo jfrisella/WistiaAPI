@@ -14,12 +14,12 @@ class Wistia
     *   @var array
     */
     protected static $resources = array(
-        "Projects",
-        "Sharings",
-        "Medias",
-        "Account",
-        "Customizations",
-        "Captions"
+        "projects",
+        "sharings",
+        "medias",
+        "account",
+        "customizations",
+        "captions"
     );
 
 
@@ -31,7 +31,7 @@ class Wistia
     *   @return Wistia resource object
     */
     public static function getResource($resource, $apikey){
-        if(!in_array($resource, static::$resources)){
+        if(!in_array(strtolower($resource), static::$resources)){
             throw new \Exception("\\Wistia\\Resources\\Wistia::getResource : Resource does not exist : " . $resource , 400);
         }
         
@@ -40,23 +40,23 @@ class Wistia
         }
         
         
-        switch($resource){
-            case "Projects":
+        switch(strtolower($resource)){
+            case "projects":
                 $obj = new \Wistia\Resources\Projects\Projects($apikey);
                 break;
-            case "Sharings":
+            case "sharings":
                 $obj = new \Wistia\Resources\Sharings\Sharings($apikey);
                 break;
-            case "Medias":
+            case "medias":
                 $obj = new \Wistia\Resources\Medias\Medias($apikey);
                 break;
-            case "Account":
+            case "account":
                 $obj = new \Wistia\Resources\Account\Account($apikey);
                 break;
-            case "Customizations":
+            case "customizations":
                 $obj = new \Wistia\Resources\Customizations\Customizations($apikey);
                 break;
-            case "Captions":
+            case "captions":
                 $obj = new \Wistia\Resources\Captions\Captions($apikey);
                 break;
             default:

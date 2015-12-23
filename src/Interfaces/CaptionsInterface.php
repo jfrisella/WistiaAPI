@@ -7,11 +7,11 @@ namespace Wistia\Interfaces;
 interface iCaption
 {
 
-    public function index();
-    public function show($project_id);
-    public function create();
-    public function update();
-    public function delete();
-    public function purchase();
+    public function index($media_id);
+    public function show($media_id, $language_code);
+    public function create($media_id);
+    public function update($media_id, $language_code);
+    public function delete($media_id, $language_code);
+    public function purchase($media_id);
 
 }

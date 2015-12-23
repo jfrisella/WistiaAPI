@@ -2,7 +2,7 @@
 /**
 *   Wistia Sharings Class
 */
-namespace Wistia\Resources\Projects;
+namespace Wistia\Resources\Sharings;
 
 class Sharings extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iSharing
 {

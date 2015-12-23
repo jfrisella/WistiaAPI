@@ -8,10 +8,10 @@ interface iMedia
 {
 
     public function listOf();
-    public function show($project_id);
-    public function update();
-    public function delete();
-    public function copy();
-    public function stats();
+    public function show($media_id);
+    public function update($media_id);
+    public function delete($media_id);
+    public function copy($media_id);
+    public function stats($media_id);
 
 }
