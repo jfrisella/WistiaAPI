@@ -2,7 +2,7 @@
 /**
 *   Uri Builder
 */
-namespace Wistia\Utility\Uri;
+namespace Wistia\Resources;
 
 class Uri
 {

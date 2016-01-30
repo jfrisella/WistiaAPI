@@ -2,9 +2,9 @@
 /**
 *   Output
 */
-namespace Wistia\Utility\Output;
+namespace Wistia\Resources;
 
-class Output implements \Wistia\Interfaces\iOutput
+class Output implements \Wistia\Resources\Interfaces\OutputInterface
 {
 
 

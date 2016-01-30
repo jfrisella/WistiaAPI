@@ -2,9 +2,9 @@
 /**
 *   Output Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iOutput
+interface OutputInterface
 {
 
     public function getResults();

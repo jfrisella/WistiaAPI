@@ -1,8 +1,8 @@
 <?php
 /**
-*   Api Factory
+*   Uri Factory
 */
-namespace Wistia\Utility\Uri;
+namespace Wistia\Resources;
 
 class UriFactory
 {
@@ -13,10 +13,10 @@ class UriFactory
     *   @param $resource
     *   @param $action
     *   @param $item_id
-    *   @return new Uri instance
+    *   @return Uri string
     */
     public static function getUri($resource, $action, array $items = array()){
-        $uri = new \Wistia\Utility\Uri\Uri();
+        $uri = new \Wistia\Resources\Uri();
         $uri->setResource($resource);
         $uri->setAction($action);
         return $uri->getUri($items);

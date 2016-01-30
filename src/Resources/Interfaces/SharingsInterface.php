@@ -2,9 +2,9 @@
 /**
 *   Wistia Sharings Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iSharing
+interface SharingInterface
 {
 
     public function listOf($project_id);

@@ -2,9 +2,9 @@
 /**
 *   Wistia Captions Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iCaption
+interface CaptionInterface
 {
 
     public function index($media_id);

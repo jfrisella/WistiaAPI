@@ -2,9 +2,9 @@
 /**
 *   Wistia Projects Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iProject
+interface ProjectInterface
 {
 
     public function listOf();

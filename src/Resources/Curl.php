@@ -2,9 +2,9 @@
 /**
 *   Curl Class
 */
-namespace Wistia\Utility\Curl;
+namespace Wistia\Resources;
 
-class Curl implements \Wistia\Interfaces\iCurl
+class Curl implements \Wistia\Resources\Interfaces\CurlInterface
 {
 
     /**
@@ -114,7 +114,7 @@ class Curl implements \Wistia\Interfaces\iCurl
         }
         
 		\curl_close($ch);
-		return \Wistia\Utility\Output\Output::createOutput($status, $result);
+		return \Wistia\Resources\Output::createOutput($status, $result);
     }
     
     
@@ -152,7 +152,7 @@ class Curl implements \Wistia\Interfaces\iCurl
         }
         
 		\curl_close($ch);
-		return \Wistia\Utility\Output\Output::createOutput($status, $result);
+		return \Wistia\Resources\Output::createOutput($status, $result);
     }
     
     

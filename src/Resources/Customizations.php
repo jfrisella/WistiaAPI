@@ -2,9 +2,9 @@
 /**
 *   Wistia Customizations Class
 */
-namespace Wistia\Resources\Customizations;
+namespace Wistia\Resources;
 
-class Customizations extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iCustomization
+class Customizations extends \Wistia\Resources\Resource implements \Wistia\Resources\Interfaces\CustomizationInterface
 {
     
     /**
@@ -32,10 +32,10 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Inter
     *   @param $params - api parameters see Wistia API
     */
     public function show($media_id, array $params = array()){
-        
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "show", ["MEDIA-ID" => $media_id]);
-        
-        $curl = new \Wistia\Utility\Curl\Curl();
+
+        $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "show", ["MEDIA-ID" => $media_id]);
+
+        $curl = new \Wistia\Resources\Curl();
         return $curl->get($uri);
         
     }
@@ -48,10 +48,10 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Inter
     *   @param $params - api parameters see Wistia API
     */
     public function create($media_id, array $params = array()){
-        
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "create", ["MEDIA-ID" => $media_id]);
-        
-        $curl = new \Wistia\Utility\Curl\Curl();
+
+        $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "create", ["MEDIA-ID" => $media_id]);
+
+        $curl = new \Wistia\Resources\Curl();
         return $curl->post($uri);
     }
     
@@ -63,10 +63,10 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Inter
     *   @param $params - api parameters see Wistia API
     */
     public function update($media_id, array $params = array()){
-        
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "update", ["MEDIA-ID" => $media_id]);
-        
-        $curl = new \Wistia\Utility\Curl\Curl();
+
+        $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "update", ["MEDIA-ID" => $media_id]);
+
+        $curl = new \Wistia\Resources\Curl();
         return $curl->put($uri);
     }
     
@@ -78,10 +78,10 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Inter
     *   @param $params - api parameters see Wistia API
     */
     public function delete($media_id, array $params = array()){
-        
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["MEDIA-ID" => $media_id]);
-        
-        $curl = new \Wistia\Utility\Curl\Curl();
+
+        $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["MEDIA-ID" => $media_id]);
+
+        $curl = new \Wistia\Resources\Curl();
         return $curl->delete($uri);
     }
 

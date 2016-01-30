@@ -2,9 +2,9 @@
 /**
 *   Wistia Account Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iAccount
+interface AccountInterface
 {
 
     public function get();

@@ -100,7 +100,7 @@ $apikey = "abcdefg123456";
 $media_id = "xyz123";
 
 //Get Captions Object
-$captions = new \Wistia\Resources\Captions\Captions($apikey);
+$captions = new \Wistia\Resources\Captions($apikey);
 
 //Then call the method on captions
 $results = $captions->delete($media_id, array(

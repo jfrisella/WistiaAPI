@@ -16,7 +16,7 @@ class Resource
     
         //Set apikey here
         //so don't have to in every resource
-        \Wistia\Utility\Curl\Curl::$apikey = $apikey;
+        \Wistia\Resources\Curl::$apikey = $apikey;
     }
 
 }

@@ -2,9 +2,9 @@
 /**
 *   Wistia Medias Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iMedia
+interface MediaInterface
 {
 
     public function listOf();

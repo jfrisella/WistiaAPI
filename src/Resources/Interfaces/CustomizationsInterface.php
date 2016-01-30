@@ -2,9 +2,9 @@
 /**
 *   Wistia Customizations Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iCustomization
+interface CustomizationInterface
 {
 
     public function show($media_id);

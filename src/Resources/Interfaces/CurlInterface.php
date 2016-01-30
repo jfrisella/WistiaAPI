@@ -2,9 +2,9 @@
 /**
 *   Curl Interface
 */
-namespace Wistia\Interfaces;
+namespace Wistia\Resources\Interfaces;
 
-interface iCurl
+interface CurlInterface
 {
 
     public function get($url, array $params = array());

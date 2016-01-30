@@ -2,9 +2,9 @@
 /**
 *   Wistia Account Class
 */
-namespace Wistia\Resources\Account;
+namespace Wistia\Resources;
 
-class Account extends \Wistia\Resources\Resource implements \Wistia\Interfaces\iAccount
+class Account extends \Wistia\Resources\Resource implements \Wistia\Resources\Interfaces\AccountInterface
 {
     
     /**
@@ -32,9 +32,9 @@ class Account extends \Wistia\Resources\Resource implements \Wistia\Interfaces\i
     */
     public function get(array $params = array()){
         
-        $uri = \Wistia\Utility\Uri\UriFactory::getUri(self::RESOURCE_NAME, "get");
+        $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "get");
         
-        $curl = new \Wistia\Utility\Curl\Curl();
+        $curl = new \Wistia\Resources\Curl();
         return $curl->get($uri, $params);
         
     }
