@@ -20,8 +20,8 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Resources\I
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey){
-        parent::__construct($apikey);
+    public function __construct($apikey, $curl = NULL){
+        parent::__construct($apikey, $curl);
     }
     
     
@@ -35,8 +35,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "show", ["PROJECT-ID" => $project_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri);
+        return $this->curl->get($uri);
         
     }
     
@@ -52,8 +51,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "listOf");
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
     }
     
     
@@ -67,8 +65,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "create");
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->post($uri, $params);
+        return $this->curl->post($uri, $params);
     }
     
     
@@ -83,8 +80,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "update",["PROJECT-ID" => $project_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->put($uri, $params);
+        return $this->curl->put($uri, $params);
     }
     
     
@@ -98,8 +94,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["PROJECT-ID" => $project_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->delete($uri);
+        return $this->curl->delete($uri);
     }
     
     
@@ -114,8 +109,7 @@ class Projects extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "copy", ["PROJECT-ID" => $project_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->post($uri, $params);
+        return $this->curl->post($uri, $params);
     }
     
 

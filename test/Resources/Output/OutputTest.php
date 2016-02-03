@@ -15,7 +15,7 @@ class OutputTest extends PHPUnit_Framework_TestCase
             "result" => true
         ];
     
-        $this->output = \Wistia\Utility\Output\Output::createOutput($status, $results);
+        $this->output = \Wistia\Resources\Output::createOutput($status, $results);
     
     }
     

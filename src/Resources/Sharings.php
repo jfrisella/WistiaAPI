@@ -20,8 +20,8 @@ class Sharings extends \Wistia\Resources\Resource implements \Wistia\Resources\I
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey){
-        parent::__construct($apikey);
+    public function __construct($apikey, $curl = NULL){
+        parent::__construct($apikey, $curl);
     }
     
     
@@ -35,8 +35,7 @@ class Sharings extends \Wistia\Resources\Resource implements \Wistia\Resources\I
     
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "listOf", ["PROJECT-ID" => $project_id]);
         
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
     }
     
     
@@ -52,8 +51,7 @@ class Sharings extends \Wistia\Resources\Resource implements \Wistia\Resources\I
         
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "show", ["PROJECT-ID" => $project_id, "SHARING-ID" => $sharing_id]);
         
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
         
     }
     
@@ -68,8 +66,7 @@ class Sharings extends \Wistia\Resources\Resource implements \Wistia\Resources\I
     
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "create", ["PROJECT-ID" => $project_id]);
         
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->post($uri, $params);
+        return $this->curl->post($uri, $params);
     }
     
     
@@ -84,8 +81,7 @@ class Sharings extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "update", ["PROJECT-ID" => $project_id, "SHARING-ID" => $sharing_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->put($uri, $params);
+        return $this->curl->put($uri, $params);
     }
     
     
@@ -100,8 +96,7 @@ class Sharings extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["PROJECT-ID" => $project_id, "SHARING-ID" => $sharing_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->delete($uri, $params);
+        return $this->curl->delete($uri, $params);
     }
     
 

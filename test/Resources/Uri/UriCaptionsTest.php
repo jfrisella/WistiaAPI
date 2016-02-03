@@ -15,7 +15,7 @@ class UriCaptionsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/captions.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -28,7 +28,7 @@ class UriCaptionsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/captions.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -42,7 +42,7 @@ class UriCaptionsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/captions/eng.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -56,7 +56,7 @@ class UriCaptionsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/captions/eng.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -70,7 +70,7 @@ class UriCaptionsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/captions/eng.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -83,7 +83,7 @@ class UriCaptionsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/captions/purchase.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
 

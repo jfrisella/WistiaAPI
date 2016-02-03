@@ -20,8 +20,8 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Resou
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey){
-        parent::__construct($apikey);
+    public function __construct($apikey, $curl = NULL){
+        parent::__construct($apikey, $curl);
     }
     
     
@@ -35,8 +35,7 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Resou
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "show", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri);
+        return $this->curl->get($uri);
         
     }
     
@@ -51,8 +50,7 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Resou
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "create", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->post($uri);
+        return $this->curl->post($uri);
     }
     
     
@@ -66,8 +64,7 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Resou
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "update", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->put($uri);
+        return $this->curl->put($uri);
     }
     
     
@@ -81,8 +78,7 @@ class Customizations extends \Wistia\Resources\Resource implements \Wistia\Resou
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->delete($uri);
+        return $this->curl->delete($uri);
     }
 
 }

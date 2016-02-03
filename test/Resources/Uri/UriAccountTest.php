@@ -12,7 +12,7 @@ class UriAccountTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/account.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action)
+            \Wistia\Resources\UriFactory::getUri($resource, $action)
         );
     }
 

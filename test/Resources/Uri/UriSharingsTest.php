@@ -15,7 +15,7 @@ class UriSharingsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/projects/xyz123/sharings.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -29,7 +29,7 @@ class UriSharingsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/projects/xyz123/sharings/abc789.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -42,7 +42,7 @@ class UriSharingsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/projects/xyz123/sharings.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
 
@@ -56,7 +56,7 @@ class UriSharingsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/projects/xyz123/sharings/abc789.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -70,7 +70,7 @@ class UriSharingsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/projects/xyz123/sharings/abc789.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     

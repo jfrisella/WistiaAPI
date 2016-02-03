@@ -12,7 +12,7 @@ class UriMediasTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action)
+            \Wistia\Resources\UriFactory::getUri($resource, $action)
         );
     }
     
@@ -25,7 +25,7 @@ class UriMediasTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
 
@@ -38,7 +38,7 @@ class UriMediasTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -51,7 +51,7 @@ class UriMediasTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -64,7 +64,7 @@ class UriMediasTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/copy.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -77,7 +77,7 @@ class UriMediasTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/stats.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     

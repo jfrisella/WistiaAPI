@@ -20,8 +20,8 @@ class Account extends \Wistia\Resources\Resource implements \Wistia\Resources\In
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey){
-        parent::__construct($apikey);
+    public function __construct($apikey, $curl){
+        parent::__construct($apikey, $curl);
     }
     
     
@@ -34,8 +34,7 @@ class Account extends \Wistia\Resources\Resource implements \Wistia\Resources\In
         
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "get");
         
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
         
     }
 

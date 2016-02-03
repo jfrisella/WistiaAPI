@@ -20,8 +20,8 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey){
-        parent::__construct($apikey);
+    public function __construct($apikey, $curl = NULL){
+        parent::__construct($apikey, $curl);
     }
     
     
@@ -34,8 +34,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "listOf");
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
         
     }
     
@@ -50,8 +49,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "show", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
         
     }
     
@@ -66,8 +64,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "update", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->put($uri, $params);
+        return $this->curl->put($uri, $params);
     }
     
     
@@ -81,8 +78,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->delete($uri, $params);
+        return $this->curl->delete($uri, $params);
     }
     
     
@@ -96,8 +92,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "copy", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->post($uri, $params);
+        return $this->curl->post($uri, $params);
     }
     
     
@@ -111,8 +106,7 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "stats", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
     }
 
 }

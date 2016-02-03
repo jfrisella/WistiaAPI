@@ -20,8 +20,8 @@ class Captions extends \Wistia\Resources\Resource implements \Wistia\Resources\I
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey){
-        parent::__construct($apikey);
+    public function __construct($apikey, $curl = NULL){
+        parent::__construct($apikey, $curl);
     }
     
     
@@ -35,8 +35,7 @@ class Captions extends \Wistia\Resources\Resource implements \Wistia\Resources\I
         
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "index", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
     }
     
     
@@ -51,8 +50,7 @@ class Captions extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "show", ["MEDIA-ID" => $media_id, "LANGUAGE" => $language_code]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->get($uri, $params);
+        return $this->curl->get($uri, $params);
     }
     
     
@@ -66,8 +64,7 @@ class Captions extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "create", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->post($uri, $params);
+        return $this->curl->post($uri, $params);
     }
     
     
@@ -82,8 +79,7 @@ class Captions extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "update", ["MEDIA-ID" => $media_id, "LANGUAGE" => $language_code]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->put($uri, $params);
+        return $this->curl->put($uri, $params);
     }
     
     
@@ -98,8 +94,7 @@ class Captions extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "delete", ["MEDIA-ID" => $media_id, "LANGUAGE" => $language_code]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->delete($uri, $params);
+        return $this->curl->delete($uri, $params);
     }
     
     
@@ -113,8 +108,7 @@ class Captions extends \Wistia\Resources\Resource implements \Wistia\Resources\I
 
         $uri = \Wistia\Resources\UriFactory::getUri(self::RESOURCE_NAME, "purchase", ["MEDIA-ID" => $media_id]);
 
-        $curl = new \Wistia\Resources\Curl();
-        return $curl->post($uri, $params);
+        return $this->curl->post($uri, $params);
     }
 
 }

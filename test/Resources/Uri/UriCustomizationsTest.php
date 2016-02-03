@@ -15,7 +15,7 @@ class UriCustomizationsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/customizations.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -28,7 +28,7 @@ class UriCustomizationsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/customizations.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -41,7 +41,7 @@ class UriCustomizationsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/customizations.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
     
@@ -54,7 +54,7 @@ class UriCustomizationsTest extends PHPUnit_Framework_TestCase
         
         $this->assertEquals(
             "https://api.wistia.com/v1/medias/xyz123/customizations.json", 
-            \Wistia\Utility\Uri\UriFactory::getUri($resource, $action, $items)
+            \Wistia\Resources\UriFactory::getUri($resource, $action, $items)
         );
     }
 
