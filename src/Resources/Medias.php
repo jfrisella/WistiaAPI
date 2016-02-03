@@ -20,8 +20,8 @@ class Medias extends \Wistia\Resources\Resource implements \Wistia\Resources\Int
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey, $curl = NULL){
-        parent::__construct($apikey, $curl);
+    public function __construct($apikey){
+        parent::__construct($apikey);
     }
     
     

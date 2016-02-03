@@ -20,8 +20,8 @@ class Account extends \Wistia\Resources\Resource implements \Wistia\Resources\In
     *
     *   @param $apikey - wistia provided api key
     */
-    public function __construct($apikey, $curl){
-        parent::__construct($apikey, $curl);
+    public function __construct($apikey){
+        parent::__construct($apikey);
     }
     
     
