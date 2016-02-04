@@ -1,0 +1,28 @@
+[
+    {
+      "id": 22570,
+      "name": "My Project Title",
+      "description": "My Project Description",
+      "mediaCount": 2,
+      "created": "2010-08-13T18:47:39+00:00",
+      "updated": "2010-08-19T21:47:00+00:00",
+      "hashedId": "4d23503f70",
+      "anonymousCanUpload": false,
+      "anonymousCanDownload": false,
+      "public": false,
+      "publicId": "4bD"
+    },
+    {
+      "id": 10495,
+      "name": "Another Project Title",
+      "description": "Another Project Description",
+      "mediaCount": 4,
+      "created": "2010-08-13T18:47:39+00:00",
+      "updated": "2010-08-19T21:47:00+00:00",
+      "hashedId": "4d23503f70",
+      "anonymousCanUpload": false,
+      "anonymousCanDownload": false,
+      "public": false,
+      "publicId": "3dF"
+    }
+  ]
